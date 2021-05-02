@@ -3,6 +3,11 @@ import { FormControl } from '@angular/forms';
 import {Observable} from 'rxjs';
 import { VehicleModel } from '../model/vehicle';
 import { VehicleService } from './service/vehicle.service';
+import {
+  tap,
+  filter
+} from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-consulta-veiculo',
@@ -13,7 +18,7 @@ import { VehicleService } from './service/vehicle.service';
 export class ConsultaVeiculoComponent implements OnInit {
   
   plate = new FormControl('');
-  public page = 1;
+  public page = 0;
   public pageSize = 10;
   public vehicleList: Array<VehicleModel> = [];
 
@@ -22,19 +27,27 @@ export class ConsultaVeiculoComponent implements OnInit {
    }
 
   ngOnInit() {
-
-  }
-
-  pesquisarByPlate(){
-    if(this.plate.value){
-     this.service.getVehicle(this.plate.value)
-      .subscribe((retorno)=>{
-           this.vehicleList = retorno.payload;
-      });
-         
-    }
+    
+    this.service.getAllVehiclesPaginado(this.page,this.pageSize)
+    .subscribe((retorno)=>{
+      if(retorno){
+        this.vehicleList = retorno;
+      }
+    });
     
   }
 
+  pesquisarByPlate(){
+    this.vehicleList = []
+    if(this.plate.value){
+      this.service.getVehiclesByPlate(this.plate.value)
+      .subscribe((retorno)=>{
+        if(retorno){
+          this.vehicleList.push(retorno);
+        }
+      });
+    }
+    
+  }
   
 }
