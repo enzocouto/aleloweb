@@ -1,1 +1,47 @@
-<p>cadastra-veiculo works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-9">   
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-titulo">
+                        Update Vehicle (disabled)
+                    </div>
+                </div> 
+                <br>                           
+                <form [formGroup]="form" (submit)="cadastraVehicle(form.value)">
+                    <div class="form-group col-6">
+                        <label for="email">Plate:</label>
+                        
+                        <input type="text" class="form-control uppercase" name="plate" formControlName="plate" autocomplete="off" maxlength="7" required>
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="pwd">Model:</label>
+                        <input type="text" class="form-control"  name="model" formControlName="model" autocomplete="off" required>
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="pwd">Manufacturer:</label>
+                        <input type="text" class="form-control"  name="manufacturer" formControlName="manufacturer" autocomplete="off" required>
+                    </div>	
+                    <div class="form-group col-6">
+                        <label for="pwd">Color:</label>
+                        <input type="text" class="form-control"  name="color" formControlName="color" autocomplete="off" required>
+                    </div>	
+                    <div class="form-group col-6">
+                        <label>Status</label><br>
+                        <input type="radio" formControlName="status" value="true" > Active
+                        <input class="radio-status" type="radio" formControlName="status" value="false"> Inactive
+                    </div>      
+                    <br>             
+                    <button type="button" class="btn btn-light" (click)="clearForm();">Clear All</button>
+                    <button [disabled]="!form.valid" type="submit" class="btn btn-success" (onclick)="form.valid">Save</button>
+                </form>     
+            </div>          
+        </div>
+        <div class="col-3">
+            <img src="../../assets/img/car.png">
+        </div>     
+                     
+    </div>
+    
+</div>
+

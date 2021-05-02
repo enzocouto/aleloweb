@@ -12,6 +12,7 @@
     margin: 4px;
 }
 
+
 .pesquisa-lupa {
     width: 5%; height: auto;
     margin: 4px;
@@ -26,10 +27,6 @@
     height: auto !important;
 }
 
-.uppercase{
-    text-transform: uppercase;
-}
-
 ngb-pagination ::ng-deep ul > li:not(.active) > a {
     color: #EDEDED !important;
     background-color: #555550;
@@ -38,6 +35,12 @@ ngb-pagination ::ng-deep ul > li:not(.active) > a {
 ngb-pagination ::ng-deep ul > li.active > a {
     color: #555550 !important;
     background-color: #EDEDED;
+}
+
+.icon-status{
+    width: 12%; height: auto;
+    margin-right: 4px;
+    
 }
 
 

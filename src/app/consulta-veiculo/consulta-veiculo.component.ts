@@ -1,7 +1,7 @@
 import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import {Observable} from 'rxjs';
-import { VehicleModel } from './model/vehicle';
+import { VehicleModel } from '../model/vehicle';
 import { VehicleService } from './service/vehicle.service';
 
 @Component({
@@ -18,17 +18,20 @@ export class ConsultaVeiculoComponent implements OnInit {
   public vehicleList: Array<VehicleModel> = [];
 
   constructor(private service: VehicleService) {
-   
+    
    }
 
-  ngOnInit(): void {
+  ngOnInit() {
 
-    this.vehicleList =  this.service.getVehicle();
   }
 
   pesquisarByPlate(){
     if(this.plate.value){
-      console.log(this.plate.value);
+     this.service.getVehicle(this.plate.value)
+      .subscribe((retorno)=>{
+           this.vehicleList = retorno.payload;
+      });
+         
     }
     
   }
