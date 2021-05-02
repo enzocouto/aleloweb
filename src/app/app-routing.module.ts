@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ReportsComponent } from './reports/reports.component';
 
 const routes: Routes = [
+  { path: '', component:  ConsultaVeiculoComponent},
   { path: 'dashboard', component:  DashboardComponent},
   { path: 'consultar', component:  ConsultaVeiculoComponent},
   { path: 'cadastrar', component: CadastraVeiculoComponent },

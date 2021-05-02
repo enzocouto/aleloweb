@@ -1,9 +1,19 @@
-.text-apresentacao{
-    font-size: 9px;
+.text-titulo{
+    font-size: 24px;
+    margin-top: 10px;
 }
 
-svg{
-    width: 8%; height: auto;
+.text-apresentacao{
+    font-size: 18px;
+}
+
+.icon-actions {
+    width: 20%; height: auto;
+    margin: 4px;
+}
+
+.pesquisa-lupa {
+    width: 5%; height: auto;
     margin: 4px;
 }
 
@@ -19,3 +29,23 @@ svg{
 .uppercase{
     text-transform: uppercase;
 }
+
+ngb-pagination ::ng-deep ul > li:not(.active) > a {
+    color: #EDEDED !important;
+    background-color: #555550;
+}
+
+ngb-pagination ::ng-deep ul > li.active > a {
+    color: #555550 !important;
+    background-color: #EDEDED;
+}
+
+
+
+
+
+
+
+
+
+
