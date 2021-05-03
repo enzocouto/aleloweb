@@ -9,8 +9,10 @@ import { CadastraVeiculoComponent } from './cadastra-veiculo/cadastra-veiculo.co
 import { MenuComponent } from './menu/menu.component';
 import { ReportsComponent } from './reports/reports.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { VehicleService} from './service/vehicle.service';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule,HTTP_INTERCEPTORS  } from '@angular/common/http';
+import { httpSetHeaders } from './httpSetHeaders.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +30,10 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    VehicleService,
+    { provide: HTTP_INTERCEPTORS, useClass: httpSetHeaders, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -46,7 +46,7 @@
                         </td>
                     </ng-template>
                 <td>
-                    <img class="icon-actions" src="../../assets/img/edit-regular.svg">
+                    <img class="icon-actions" src="../../assets/img/edit-regular.svg" [routerLink] = "['/editar', vehicle.id]" >
                     <img class="icon-actions" src="../../assets/img/trash-alt-regular.svg" (click)="excluirVehicle(vehicle.id)">
                     
                 </td>

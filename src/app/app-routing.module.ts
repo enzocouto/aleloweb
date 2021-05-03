@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'dashboard', component:  DashboardComponent},
   { path: 'consultar', component:  ConsultaVeiculoComponent},
   { path: 'cadastrar', component: CadastraVeiculoComponent },
+  { path: 'editar/:id', component: CadastraVeiculoComponent },
   { path: 'reports', component: ReportsComponent },
 ];
 
