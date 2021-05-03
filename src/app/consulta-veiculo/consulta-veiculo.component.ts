@@ -5,7 +5,7 @@ import { VehicleModel } from '../model/vehicle';
 import { VehicleService } from './service/vehicle.service';
 import {
   tap,
-  filter
+  map
 } from 'rxjs/operators';
 
 
@@ -30,9 +30,7 @@ export class ConsultaVeiculoComponent implements OnInit {
     
     this.service.getAllVehiclesPaginado(this.page,this.pageSize)
     .subscribe((retorno)=>{
-      if(retorno){
-        this.vehicleList = retorno;
-      }
+       this.vehicleList = retorno;
     });
     
   }
@@ -47,7 +45,15 @@ export class ConsultaVeiculoComponent implements OnInit {
         }
       });
     }
-    
   }
-  
+
+
+  excluirVehicle(id : any){
+        this.service.excluirVehicle(id)
+        .subscribe((retorno)=>{
+              console.log(retorno);
+        });
+  }
+
+
 }

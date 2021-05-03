@@ -1,4 +1,5 @@
 
+export interface Pagina extends Array<VehicleModel>{}
 
 export class VehicleModel{
      id?: number;
@@ -7,10 +8,15 @@ export class VehicleModel{
      manufacturer?: string;
      color?: string;
      status?: boolean;
-
+     content?: Object;
      constructor(){
-
+      this.content = {};
      }
+}
+
+export class Paginas{
+
+  content?: Pagina;
 }
 
 
