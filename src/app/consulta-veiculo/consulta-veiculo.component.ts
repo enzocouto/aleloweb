@@ -54,11 +54,19 @@ export class ConsultaVeiculoComponent implements OnInit {
   }
 
   excluirVehicle(id : any){
+        //todo - mostrar mensagem na tela e recarregar a lista de veiculos
         this.service.excluirVehicle(id)
-        .subscribe((retorno)=>{       
-             //todo - Tratar retorno
-
-        })
+        .subscribe(
+          val => {
+              console.log("excluiu veiculo com sucesso", val);
+          },
+          response => {
+              console.log("ocorreu um erro", response);
+          },
+          () => {
+              console.log("observable is now completed.");
+          }
+        ); 
   }
 
 }

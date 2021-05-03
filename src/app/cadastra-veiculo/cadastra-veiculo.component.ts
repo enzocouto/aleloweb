@@ -57,7 +57,19 @@ export class CadastraVeiculoComponent implements OnInit {
 
   cadastraVehicle(model : VehicleModel){
     let vehicle = this.form.getRawValue();
-    this.service.gravarVehicle(vehicle); 
+    this.service.gravarVehicle(vehicle)
+    //todo - fazer mostrar mensagem na tela
+    .subscribe(
+      val => {
+          console.log("Gravou veiculo com sucesso", val);
+      },
+      response => {
+          console.log("ocorreu um erro", response);
+      },
+      () => {
+          console.log("observable is now completed.");
+      }
+    ); 
 
   }
 

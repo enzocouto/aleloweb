@@ -81,19 +81,7 @@ export class VehicleService {
 
     return this.httpClient.put<VehicleModel>(this.apiUrl + '/'+ vehicle.id, JSON.stringify(vehicle), 
     {headers}
-    )
-    .subscribe(
-      val => {
-          console.log("PUT call successful value returned in body", 
-                      val);
-      },
-      response => {
-          console.log("PUT call in error", response);
-      },
-      () => {
-          console.log("The PUT observable is now completed.");
-      }
-    )
+    );
   }
 
 
